@@ -1,0 +1,282 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins',sans-serif;
+}
+*::selection{
+    display: none;
+}
+body {
+    display: flex;
+    align-items:center ;
+    justify-content: center;
+     min-height: 100vh;
+  background:black;
+}
+.container::selection{
+    display: none;
+
+}
+.menu {
+    position: relative;
+    width: 255px;
+    height: 259px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .menu li {
+    position: absolute;
+    left: 0;
+    list-style: none;
+    transform: rotate(0deg) translateX(100px);
+    transform-origin: 130px;
+    transition: 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+  }
+  .menu.active li {
+    transform: rotate(calc(360deg / 8 * var(--i)));
+  }
+  .menu a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    text-decoration: none;
+    font-size: 22px;
+    border-radius: 50%;
+    transform: rotate(calc(360deg / -8 * var(--i)));
+    transition: 1s;
+    color: transparent;
+    transition-delay: 0.5s;
+    filter: drop-shadow(0 0 2px var(--clr));
+  }
+  .menu.active a {
+    color: var(--clr);
+  }
+  .menu a::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--clr);
+    transform: rotate(calc(90deg * var(--i))) translate(0, 25px);
+    transition: width 0.5s, height 0.5s, transform 0.5s;
+    transition-delay: 0.5s, 1s, 1.5s;
+  }
+  .menu.active a::before {
+    width: 50px;
+    height: 50px;
+    background: #161616;
+    border: 2px solid var(--clr);
+    transform: rotate(calc(0 * var(--i)));
+    transition: transform 0.5s, height 0.5s, width 0.5s;
+    transition-delay: 0.5s, 1.5s, 1.5s;
+    border-radius: 10px;
+    filter: drop-shadow(0 0 5px var(--clr));
+    rotate: 135deg;
+  }
+  .menu.active li:hover a::before {
+    background: var(--clr);
+  }
+  .menu.active li:hover a ion-icon {
+    color: #161616;
+  }
+  
+  .menuToggle {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 32px;
+    transition: 1.5s;
+  }
+  .menu.active .menuToggle {
+    transform: rotate(315deg);
+  }
+.container{
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    height: 680px;
+    background-color: black;
+    padding: 10px;
+    border: 1px solid rgb(239, 218, 218);
+    max-width: 1290px;
+border-radius: 9px;
+backdrop-filter: blur(100px);
+}
+
+section{
+    background: white;
+    border-radius: 7px;
+}
+.tools-board::selection{
+    display: none;
+}
+.tools-board{
+    width: 210px;
+    background-color: black;
+    color: white;
+    padding: 15px 22px 0;
+}
+.drawing-board{
+    flex: 1;
+}
+.tools-board .row{
+    margin-bottom: 20px;
+
+}
+.row .options{
+    list-style: none;
+    margin: 10px 0 0 5px;
+}
+.row .options .option{
+    display: flex;
+    cursor: pointer; 
+
+    align-items: center;
+    margin-bottom: 10px;
+}
+.option:is(:hover,.active) img{
+filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+.option:where(span,label)
+{
+    color: #516A68;
+    cursor: pointer; 
+    padding-left: 10px;
+}
+.option:is(:hover,.active) :where(span,label)
+{
+color: #4A98F7;
+}
+.option #fill{
+   height: 14px;
+   width: 14px;
+   cursor: pointer; 
+}
+#fill:checked ~label{
+    color: #4A98F7;
+}
+.option #slide{
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+}
+.colors .option{
+    height: 20px;
+    width: 20px;
+    background: red;   
+    border-radius: 50%;
+    margin-top: 3px;
+    position: relative;
+
+}
+
+.colors .option:nth-child(1)
+{
+ background-color: red;
+ border: 1px solid black;   
+}
+.colors .option:nth-child(2)
+{
+ background-color: yellow;   
+}
+.colors .option:nth-child(3)
+{
+ background-color: rgb(0, 255, 89);   
+}
+.colors .option:nth-child(4)
+{
+ background-color: blue;   
+}
+.colors .option:hover::before{
+    position: absolute;
+    content: "";
+    height: 12px;
+    top: 50%;
+    left: 50%;
+    height: 12px;
+    width:12px ;
+    background:inherit ;
+    border-radius: inherit;
+    transform: translate(-50%,-50%);
+    border: 2px solid white;
+}
+.colors .options{
+   display: flex;
+   justify-content: space-between; 
+}
+.colors .option:last-child:hover::before
+{
+    border-color: #ccc;
+}
+.buttons .save-png{
+    color: white;
+    border: 1px solid gray;
+}
+.buttons button{
+  width: 100%;
+  color: white;
+  border: none;
+  outline: none;  
+  padding: 11px 0;
+  font-size: .9rem;
+  border-radius: 10PX;
+  background: none;
+  margin-bottom: 13px;
+  cursor: pointer;
+}
+.custom-input {
+  position: absolute;
+  display: none;
+  border: 1px solid #ccc;
+  padding: 5px;
+  
+
+}
+
+.buttons .clear-canvas{
+    color:white;
+    border: 1px solid #6C757D;
+}
+.buttons .save-img{
+    background: #4A98F7;
+    border: none;
+}
+.clear-canvas:hover{
+    color: white;
+    border: none;
+    transition: all .3s ease;
+
+    background: #4A98F7;
+}
+.save-png:hover{
+    color: white;
+    border: none;
+    transition: all .3s ease;
+
+    background: #4A98F7;
+}
+.colors .option:first-child.selected::before{
+    border-color: #4A98F7;
+}
+.option #color-picker{
+    opacity: 0;
+    cursor: pointer;
+}
+.drawing-board canvas{
+ width: 100%;
+ height: 100%;
+
+}

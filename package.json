@@ -1,0 +1,26 @@
+{
+  "name": "my-electron-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "package-win": "electron-packager . MyApp --platform=win32 --arch=x64 --out=dist --overwrite",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.myapp.app",
+    "win": {
+      "target": "nsis"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^31.1.0",
+    "electron-builder": "^22.14.13",
+    "electron-packager": "^17.1.2"
+  }
+}

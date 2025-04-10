@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint</title>
+    <link rel="website icon" type="png " href="imag.png">
+    <script src="script.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="post.js"></script>
+</head>
+<body>
+    <ul class="menu">
+        
+        <div class="menuToggle"><ion-icon name="add-outline"></ion-icon></div>
+      
+        <li style="--i: 0; --clr: #ff2972">
+          <a href="#"><ion-icon name="home-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 1; --clr: #fee800">
+          <a href="#"><ion-icon name="settings-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 2; --clr: #04fc43">
+          <a href="#"><ion-icon name="mail-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 3; --clr: #fe00f1">
+          <a href="#"><ion-icon name="key-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 4; --clr: #00b0fe">
+          <a href="#"><ion-icon name="camera-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 5; --clr: #fea600">
+          <a href="#"><ion-icon name="game-controller-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 6; --clr: #a529ff">
+          <a href="#"><ion-icon name="person-outline"></ion-icon></a>
+        </li>
+        <li style="--i: 7; --clr: #01bdab">
+          <a href="#"><ion-icon name="videocam-outline"></ion-icon></a>
+        </li>
+      </ul>
+    
+    
+      <audio id="toggleSound">
+        <source src="audio/close.mp3" type="audio/mpeg">
+        <source src="audio/close.ogg" type="audio/ogg">
+      </audio>
+    
+      <audio id="openSound">
+        <source src="audio/open.mp3" type="audio/mpeg">
+        <source src="audio/open.ogg" type="audio/ogg">
+      </audio>
+    
+      <audio id="hoverSound">
+        <source src="audio/beep.mp3" type="audio/mpeg">
+        <source src="audio/beep.ogg" type="audio/ogg">
+      </audio>
+    
+      
+      
+    
+    
+      <script
+        type="module"
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+        nomodule
+        src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
+    <div class="container">
+        <section class="tools-board">
+            <div class="row">
+                <label class="title">Shapes</label>
+                <ul class="options">
+                    <li class="option tool" id="rectangle">
+                        <img src="rectangle.svg">
+                        <span>Rectangle</span>
+                    </li>
+                    <li class="option tool" id="circle">
+                        <img src="circle.svg">
+                        <span>Circle</span>
+                    </li>
+                    <li class="option tool" id="triangle">
+                        <img src="triangle.svg">
+                        <span>Triangle</span>
+                    </li>
+                    <li class="option tool">
+                        <input type="checkbox" id="fill">
+                        <label for="fill">Fill Color</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <label for="" class="title">Options</label>
+                <ul class="options">
+                    <li class="option active tool" id="brush">
+                        <img src="brush.svg">
+                        <span>Brush</span>
+                    </li>
+                    <li class="option tool" id="eraser">
+                        <img src="eraser.svg">
+                        <span>Eraser</span>
+                    </li>
+                    <li class="option">
+                        <input type="range" id="slide" min="1" max="20" value="5">
+                    </li>
+                </ul>
+            </div>
+            <div class="row colors">
+                <label class="title">Colors</label>
+                <ul class="options">
+                    <li class="option"></li>
+                    <li class="option selected"></li>
+                    <li class="option"></li>
+                    <li class="option"></li>
+                    <li class="option">
+                        <input type="color" id="color-picker" value="#4A98F7">
+                    </li>
+                </ul>
+            </div>
+            <div class="row buttons">
+                <button class="clear-canvas">Clear-Canvas</button>
+                <button class="save-img">Save As Jpeg</button>
+                <button class="save-png">Save as Png</button>
+            </div>
+        </section>
+        <section class="drawing-board">
+            <canvas></canvas>
+        </section>
+            <input type="text" id="customInput" class="custom-input">
+        </section>
+    </div>
+</body>
+</html>
